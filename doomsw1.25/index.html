@@ -142,6 +142,10 @@
             overflow-x: hidden;
         }
 
+        svg {
+            transform: scale(0);
+        }
+
         #homepage {
             border: 1px solid #0089ff;
             border-radius: 15px;
@@ -170,6 +174,7 @@
 
 <body>
     <img id="homepage" src="../homepage.png">
+
     <div class="spinner" id='spinner'></div>
     <div class="emscripten" id="status">Downloading...</div>
 
@@ -314,7 +319,7 @@
             var REMOTE_PACKAGE_NAME = typeof Module['locateFile'] === 'function' ?
                 Module['locateFile'](REMOTE_PACKAGE_BASE) :
                 ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
-            var REMOTE_PACKAGE_SIZE = 5004754;
+            var REMOTE_PACKAGE_SIZE = 5005195;
             var PACKAGE_UUID = 'a57dbcd5-b296-4352-a8ea-167654cb497d';
 
             function fetchRemotePackage(packageName, packageSize, callback, errback) {
@@ -413,19 +418,20 @@
                         this.requests[this.name] = null;
                     },
                 };
-                new DataRequest(0, 47, 0, 0).open('GET', '/autoexec.bat');
-                new DataRequest(47, 847, 0, 0).open('GET', '/DEFAULT.CFG');
-                new DataRequest(847, 561394, 0, 0).open('GET', '/DOOM.EXE');
-                new DataRequest(561394, 4786854, 0, 0).open('GET', '/DOOM1.WAD');
-                new DataRequest(4786854, 4798454, 0, 0).open('GET', '/dosbox.conf');
-                new DataRequest(4798454, 4829467, 0, 0).open('GET', '/IPXSETUP.EXE');
-                new DataRequest(4829467, 4836156, 0, 0).open('GET', '/LICENSE.DOC');
-                new DataRequest(4836156, 4836549, 0, 0).open('GET', '/MODEM.CFG');
-                new DataRequest(4836549, 4842168, 0, 0).open('GET', '/ORDER.FRM');
-                new DataRequest(4842168, 4876666, 0, 0).open('GET', '/README.EXE');
-                new DataRequest(4876666, 4912427, 0, 0).open('GET', '/SERSETUP.EXE');
-                new DataRequest(4912427, 5004358, 0, 0).open('GET', '/SETUP.EXE');
-                new DataRequest(5004358, 5004754, 0, 0).open('GET', '/VENDOR.DOC');
+                new DataRequest(0, 31, 0, 0).open('GET', '/autoexec.bat');
+                new DataRequest(31, 831, 0, 0).open('GET', '/DEFAULT.CFG');
+                new DataRequest(831, 561378, 0, 0).open('GET', '/DOOM.EXE');
+                new DataRequest(561378, 4786838, 0, 0).open('GET', '/DOOM1.WAD');
+                new DataRequest(4786838, 4798444, 0, 0).open('GET', '/dosbox.conf');
+                new DataRequest(4798444, 4829457, 0, 0).open('GET', '/IPXSETUP.EXE');
+                new DataRequest(4829457, 4836146, 0, 0).open('GET', '/LICENSE.DOC');
+                new DataRequest(4836146, 4836539, 0, 0).open('GET', '/MODEM.CFG');
+                new DataRequest(4836539, 4842158, 0, 0).open('GET', '/ORDER.FRM');
+                new DataRequest(4842158, 4876656, 0, 0).open('GET', '/README.EXE');
+                new DataRequest(4876656, 4912417, 0, 0).open('GET', '/SERSETUP.EXE');
+                new DataRequest(4912417, 5004348, 0, 0).open('GET', '/SETUP.EXE');
+                new DataRequest(5004348, 5004799, 0, 0).open('GET', '/SHUTDOWN.COM');
+                new DataRequest(5004799, 5005195, 0, 0).open('GET', '/VENDOR.DOC');
 
                 function processPackageData(arrayBuffer) {
                     Module.finishedDataFileDownloads++;
@@ -447,6 +453,7 @@
                     DataRequest.prototype.requests['/README.EXE'].onload();
                     DataRequest.prototype.requests['/SERSETUP.EXE'].onload();
                     DataRequest.prototype.requests['/SETUP.EXE'].onload();
+                    DataRequest.prototype.requests['/SHUTDOWN.COM'].onload();
                     DataRequest.prototype.requests['/VENDOR.DOC'].onload();
                     Module['removeRunDependency']('datafile_/Users/ajf/Projects/2015/win95.ajf.me/em-dosbox/src/image.data');
 
@@ -475,10 +482,10 @@
 
         })();
 
-        Module['arguments'] = ['./autoexec.bat'];
+        Module['arguments'] = [ './autoexec.bat' ];
 
         function stuck_func() {
-            alert('Emulation stucks :(');
+            location.href = '..';
         }
         document.getElementById('showLogs').addEventListener('change', function() {
             if (document.getElementById('showLogs').checked) {
@@ -487,6 +494,7 @@
                 document.getElementById('output').style.display = "none";
             }
         });
+
         document.getElementById('homepage').addEventListener('click', function() {
             location.href = '..';
         });
