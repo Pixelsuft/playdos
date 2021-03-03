@@ -319,7 +319,7 @@
             var REMOTE_PACKAGE_NAME = typeof Module['locateFile'] === 'function' ?
                 Module['locateFile'](REMOTE_PACKAGE_BASE) :
                 ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
-            var REMOTE_PACKAGE_SIZE = 36654506;
+            var REMOTE_PACKAGE_SIZE = 41828835;
             var PACKAGE_UUID = 'a57dbcd5-b296-4352-a8ea-167654cb497d';
 
             function fetchRemotePackage(packageName, packageSize, callback, errback) {
@@ -420,7 +420,8 @@
                 };
                 new DataRequest(0, 84, 0, 0).open('GET', '/autoexec.bat');
                 new DataRequest(84, 11690, 0, 0).open('GET', '/dosbox.conf');
-                new DataRequest(11690, 36654506, 0, 0).open('GET', '/win310ru.img');
+                new DataRequest(11690, 25059, 0, 0).open('GET', '/logo.png');
+                new DataRequest(25059, 41828835, 0, 0).open('GET', '/win310ru.img');
 
                 function processPackageData(arrayBuffer) {
                     Module.finishedDataFileDownloads++;
@@ -432,6 +433,7 @@
                     DataRequest.prototype.byteArray = byteArray;
                     DataRequest.prototype.requests['/autoexec.bat'].onload();
                     DataRequest.prototype.requests['/dosbox.conf'].onload();
+                    DataRequest.prototype.requests['/logo.png'].onload();
                     DataRequest.prototype.requests['/win310ru.img'].onload();
                     Module['removeRunDependency']('datafile_/Users/ajf/Projects/2015/win95.ajf.me/em-dosbox/src/image.data');
 

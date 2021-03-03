@@ -3,3 +3,7 @@ template.html
 build.py
 dosbox.conf
 autoexec.bat
+*.img
+*.bat
+*.py
+*.conf
