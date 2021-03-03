@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Pixelsuft PlayDos</title>
@@ -9,27 +10,53 @@
             padding: 0px;
             font-family: Segoe UI;
             outline: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
             user-select: none;
             cursor: default;
         }
+
         body {
             display: block;
             margin-left: 200px;
             margin-right: 200px;
         }
+
         #welcome {
             font-size: 20px;
             color: dodgerblue;
+            margin-bottom: 40px;
         }
+        
+        #homepage {
+            border: 1px solid #0089ff;
+            border-radius: 15px;
+            width: 100%;
+            transition: 0.5s all;
+        }
+
+        #homepage:hover {
+            background-color: #0089ff;
+        }
+
     </style>
     <link rel="shortcut icon" type="image/ico" href="/playdos/favicon.ico">
 </head>
+
 <body>
-    <div id="welcome">Welcome to the PlayDos By Pixelsuft!</div>
+    <div id="welcome">Welcome to the <strike>City 17</strike> Error 404 Page By Pixelsuft!</div>
+    <img src="homepage.png" id="homepage">
     <script language="JavaScript" type="text/javascript">
-        document.addEventListener('contextmenu', function(e){
+        document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
+        });
+        document.getElementById('homepage').addEventListener('click', function(){
+            location.href='/playdos';
         });
     </script>
 </body>
+
 </html>
