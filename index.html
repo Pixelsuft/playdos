@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pixelsuft PlayDos</title>
+    <style type="text/css" rel="stylesheet">
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Segoe UI;
+            outline: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+        }
+
+        body {
+            display: block;
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+        #welcome {
+            font-size: 20px;
+            color: dodgerblue;
+            margin-bottom: 40px;
+        }
+
+        .img_logo {
+            width: 320px;
+            height: 200px;
+            margin: 10px;
+        }
+
+    </style>
+    <link rel="shortcut icon" type="image/ico" href="/playdos/favicon.ico">
+</head>
+
+<body>
+    <div id="welcome">Welcome to the <strike>City 17</strike> PlayDos By Pixelsuft!</div>
+    <script language="JavaScript" type="text/javascript">
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        var game_dirs = [
+            'doomsw1.25',
+            'win101'
+        ];
+        for (var i = 0; i < game_dirs.length; i++) {
+            var current = game_dirs[i];
+            var image = document.createElement('img');
+            image.className = 'img_logo';
+            image.id = current;
+            image.src = current + '/logo.png';
+            image.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+            image.addEventListener('click', function(e) {
+                console.log(e);
+                location.href = e.srcElement.id;
+            });
+            document.body.appendChild(image);
+        }
+
+    </script>
+</body>
+
+</html>
